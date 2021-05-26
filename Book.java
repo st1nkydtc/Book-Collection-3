@@ -1,4 +1,4 @@
-
+import ecs100.*;
 /**
  * Support class for book
  * A book contains an id, name, quantity, image
@@ -14,20 +14,31 @@ public class Book
     private String author;
     private int quantity;
     private String image;
+    static final String DEFAULT_IMAGE = "book.png";
+    
+    
     
     /**
      * Constructor for objects of class Book
      */
-    public Book(int id, String nm, String auth, int qty)
+    public Book(int id, String nm, String auth, int qty, String img)
     {
         // initialise instance variables
         this.id = id;
         this.name = nm;
         this.author = auth;
         this.quantity = qty;
-        
+        this.image = img;
         
     }
+    
+    /**
+     * Constructor overloading
+    */
+   public Book(int id, String nm, String author, int qty) {
+       this(id, nm, author, qty, DEFAULT_IMAGE);
+    }
+    
 
     /**
      * Getter for id
@@ -52,7 +63,7 @@ public class Book
     }
     
     /**
-     * Getter for id
+     * Getter for author
      *
      * @param  y  a sample parameter for a method
      * @return    the author
@@ -63,7 +74,7 @@ public class Book
     }
     
     /**
-     * Getter for id
+     * Getter for quantity
      *
      * @param  y  a sample parameter for a method
      * @return    the int quantity
@@ -71,5 +82,19 @@ public class Book
     public int getQuantity()
     {
         return(this.quantity);
+    }
+    
+    /**
+     * Display our image on our GUI
+     * 
+     */
+    public void displayBook() {
+        int locX = 100;
+        int locY = 100;
+        final double WIDTH = 100;
+        final double HEIGHT = 100;
+        
+        UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
+        
     }
 }
