@@ -69,7 +69,7 @@ public class Books
      * Should refactor to find on name
      */
     public void findBook() {
-        int bookID = UI.askInt("Id: ");     // Finds book on Id - change to title
+        int bookId = UI.askInt("Id: ");     // Finds book on Id - change to title
         UI.println(booksMap.get(bookId).getName());
         
         
