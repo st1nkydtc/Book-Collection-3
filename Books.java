@@ -39,14 +39,29 @@ public class Books
         
         this.currBookId = 4;    // initialise the book id
         
+        this.menu();
+        
     }
 
     /**
      * Adds a book to the map
      */
     public void addBook() {
+        final int MAX_QUANTITY = 99;
+        int quantity = -1;
         
+        // ask the user for details
+        String name = UI.askString("Title; ");
+        String author = UI.askString("Author: ");
         
+        // check boundaries for the number of books added to the stock
+        do {
+            quantity = UI.askInt("Quantity: ");
+        }while (0 > quantity || quantity > MAX_QUANTITY);
+        
+        // Incriment the book ID counter and add book to hashmap
+        this.currBookId++;
+        booksMap.put(currBookId, new Book(currBookId, name, author, quantity));
     }
     
     /**
@@ -54,6 +69,8 @@ public class Books
      * Should refactor to find on name
      */
     public void findBook() {
+        int bookID = UI.askInt("Id: ");     // Finds book on Id - change to title
+        UI.println(booksMap.get(bookId).getName());
         
         
     }
