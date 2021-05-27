@@ -78,7 +78,16 @@ public class Books
         
     }
     
-   
+    public void findBookName(String nm)
+    {
+        String name = nm;
+        
+        if (Book b : booksMap.values()){
+            
+            
+        }
+     
+    }
     
     /**
      * Prints all books
