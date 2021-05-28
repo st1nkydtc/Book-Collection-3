@@ -71,19 +71,30 @@ public class Books
      * Finds a book based on the id
      * Should refactor to find on name
      */
-    public void findBook() {
+    public void findBookName() {
         int bookId = UI.askInt("Id: ");     // Finds book on Id - change to title
-        UI.println(booksMap.get(bookId).getName());     // prints out book name
-        booksMap.get(bookId).displayBook();     // Shows book cover on canvas
+        try {
+            
+            UI.println(booksMap.get(bookId).getName());     // prints out book name
+            booksMap.get(bookId).displayBook();     // Shows book cover on canvas
+        }
+        catch(Exception e) {
+            UI.println("no");
+        }
+        
         
     }
+      
     
-    public void findBookName(String nm)
+    public void findBookId(String nm)
     {
-        String name = nm;
         
-        if (Book b : booksMap.values()){
-            
+        String name = UI.askInt("Name: ");
+        
+        for (Book b : booksMap.values()){
+            if (b.getName().equalsIgnoreCase(name)) {
+                UI.println();
+            }
             
         }
      
@@ -122,7 +133,7 @@ public class Books
                 addBook();
                 
             } else if (choice.equalsIgnoreCase("F")) {
-                findBook();
+                findBookName();
             }else if (choice.equalsIgnoreCase("P")) {
                 printAll();
             }else if (choice.equalsIgnoreCase("Q")) {
