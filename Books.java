@@ -89,7 +89,7 @@ public class Books
     public void findBookId(String nm)
     {
         
-        String name = UI.askInt("Name: ");
+        String name = UI.askString("Name: ");
         
         for (Book b : booksMap.values()){
             if (b.getName().equalsIgnoreCase(name)) {
